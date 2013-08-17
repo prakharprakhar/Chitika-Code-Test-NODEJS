@@ -1,3 +1,7 @@
+/*
+* Trie Interface
+*/
+
 var EventEmitter = require('events').EventEmitter,
     util = require('util'),
     Trie = require('./trie').Trie;
@@ -5,7 +9,7 @@ var EventEmitter = require('events').EventEmitter,
 exports = module.exports = Autocomplete;
 exports.version = '0.0.1';
 
-
+//Getting the object
 exports.connectAutocomplete = function(onReady) {
     Autocomplete.singleton  = new Autocomplete();
     if(onReady) 
@@ -13,6 +17,7 @@ exports.connectAutocomplete = function(onReady) {
     return Autocomplete.singleton;
 };
 
+//Trie instantiation
 function Autocomplete(name) {
     this.trie = new Trie()
     EventEmitter.call(this);
@@ -23,6 +28,7 @@ Autocomplete.prototype.close = function() {
     this.emit('close');
 };
 
+//Initializing trie data structure with the input values
 Autocomplete.prototype.initialize = function(getInitialElements) {
     getInitialElements(function(elements) {
         elements.forEach(function(element) {
@@ -41,6 +47,7 @@ Autocomplete.prototype.initialize = function(getInitialElements) {
     });
 };
 
+//insert element
 Autocomplete.prototype.addElement = function(element) {
 	//console.log(element.key + " : " + element.value);
     this.trie.insert(element.key,element.value);
@@ -51,6 +58,8 @@ Autocomplete.prototype.removeElement = function(element) {
     this.trie.remove(element);
 };
 
+//Find all queries with the input prefix
 Autocomplete.prototype.search = function(prefix) {
     return this.trie.autoComplete(prefix);
 };
+
