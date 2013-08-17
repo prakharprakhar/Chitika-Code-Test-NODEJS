@@ -1,0 +1,54 @@
+<!DOCTYPE html> 
+<html> 
+<head> 
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"> 
+<title>Trie in Javascript</title> 
+<meta name="description" content="Trie in Javascript"> 
+<meta name="keywords" content="javascript, trie, prefix tree, dictionary, spell, spelling, spell check, data structure">
+<style>
+#result ul {
+    list-style-type:none;
+    margin:10px 0 0 110px;
+    padding:0;
+}
+</style>
+<script src="http://yui.yahooapis.com/3.2.0/build/yui/yui-min.js"></script>
+<script src="trie.js"></script>
+<script src="autocomplete.js"></script>
+<script>
+(function() {
+  
+	// Create the autocomplete object
+	var autocomplete = Autocomplete.connectAutocomplete();
+    
+    YUI().use('node', 'event', function(Y) {
+        var handleKey = Y.on('keyup', function(e) {
+            var textInput,
+                suggestions,
+                html,
+                i;
+                
+            textInput = Y.one("#input").get("value");
+            stateList = autoComplete.search(textInput.toLowerCase());
+            
+            html = "<ul>";
+            for(i = 0; i < stateList.length; i++) {
+                html += "<li>" + stateList[i][0] + stateList[i][1] + "</li>";
+            }
+            html += "</ul>";
+            
+            Y.one("#result").set('innerHTML', html);
+        }, '#input');
+    });
+})();
+</script>
+</head>
+<body>
+    <h1>Auto-complete feature demo using Trie</h1>
+    <div id="trie-demo">
+        <label for="input">Enter a user query: </label>
+        <input type="text" id="input">
+        <div id="result"></div>
+    </div>
+</body>
+</html>
