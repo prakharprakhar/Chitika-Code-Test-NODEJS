@@ -15,12 +15,13 @@
 <script src="http://yui.yahooapis.com/3.2.0/build/yui/yui-min.js"></script>
 <script src="trie.js"></script>
 <script src="autocomplete.js"></script>
+
 <script>
 (function() {
   
 	// Create the autocomplete object
 	var autocomplete = Autocomplete.connectAutocomplete();
-    
+    //Test Code
     YUI().use('node', 'event', function(Y) {
         var handleKey = Y.on('keyup', function(e) {
             var textInput,
@@ -32,6 +33,7 @@
             stateList = autoComplete.search(textInput.toLowerCase());
             
             html = "<ul>";
+
             for(i = 0; i < stateList.length; i++) {
                 html += "<li>" + stateList[i][0] + stateList[i][1] + "</li>";
             }
