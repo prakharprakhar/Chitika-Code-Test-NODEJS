@@ -57,13 +57,14 @@ io.sockets.on('connection', function(socket) {
 	var userQuery = data["message"];
 
 	var matches = autocomplete.search(userQuery);
-
+	
 	//sorting the result based on the hit count, here the variable is [query, hitCount]
 	// a[1] and b[1] are hitCounts 
 	matches.sort(function(a,b){
-		return a[1] - b[1];
+		return b[1] - a[1];
 	});
 
+	//console.log("After sort values are :" + matches);
 	//Getting the top 4 queries
 	matches.splice(4);
    	socket.emit("message_to_client",{message: matches});
