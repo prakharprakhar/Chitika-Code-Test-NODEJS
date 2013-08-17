@@ -15,8 +15,8 @@ socketio.on("message_to_client", function(data) {
 	//Clear the canvas
 	document.getElementById("chatlog").innerHTML = "";
 	
-	var i;
-	for( i=0;i<result.length;i++)
+	var i = result.length -1;
+	for( i;i>=0;i--)
 	{
 		document.getElementById("chatlog").innerHTML = ("<hr/>" +
 		result[i] + document.getElementById("chatlog").innerHTML);
