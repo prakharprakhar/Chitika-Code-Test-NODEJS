@@ -15,7 +15,17 @@ var http = require('http'),
 		["how can I use nodejs" , 10],
 		["Do you know how to train your dragon" , 50],
 		["what did you know " , 50],
-		["what is the reason of " , 100]
+		["whatsapp download " , 500],
+		["what is my ip" , 400],
+		["whatsapp" , 504],
+		["what did you know " , 50],
+		["what is the reason of " , 100],
+		["where is the doc " , 500],
+		["where's my wifi " , 501],
+		["where can i get a signal " , 502],
+		["where is grand canyon " , 503],
+		["where's my water " , 504]
+
     ];
 
 // Create the autocomplete object
