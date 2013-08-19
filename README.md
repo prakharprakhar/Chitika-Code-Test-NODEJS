@@ -1,6 +1,8 @@
 Chitika Code Test:
 
 Files:
+	Requires socket.io
+	npm install socket.io
 
 main.js	
 
